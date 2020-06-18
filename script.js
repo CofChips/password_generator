@@ -40,3 +40,9 @@ var numeric = {
       number : [],
       isNeeded : true, 
 }
+
+alert("Please enter password criteria on the subsequent screens");
+
+while(isNaN(passLength) || passLength < 8 || passLength > 128) {
+    passLength = parseInt(prompt("Your password must be 8 - 128 characters in length.  How many characters would you like your password to be (please enter a number from 8 - 128)?")); 
+}
