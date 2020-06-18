@@ -43,6 +43,8 @@ char : function (){
   isNeeded : true,
 }
 
+var criteriaNeeded = 0;
+
 // Write password to the #password input
 function writePassword() {
 console.log("test");
@@ -76,10 +78,75 @@ do {
   // user must choose at least one criteria 
   while(lowercase.isNeeded === false && uppercase.isNeeded === false && numeric.isNeeded === false && specChar.isNeeded === false);
 
-for (var i = 0; i < passLength; i++) {
-  var num = Math.floor(Math.random() * 4) + 1;
-  passDraft.push(num);
+  if(lowercase.isNeeded === true && uppercase.isNeeded === true && numeric.isNeeded === true && specChar.isNeeded === true){
+    criteriaNeeded = 4;
 }
+
+else if(lowercase.isNeeded === false && uppercase.isNeeded === true && numeric.isNeeded === true && specChar.isNeeded === true){
+    criteriaNeeded = 3;
+}
+
+else if(lowercase.isNeeded === true && uppercase.isNeeded === false && numeric.isNeeded === true && specChar.isNeeded === true){
+    criteriaNeeded = 3;
+}
+
+else if(lowercase.isNeeded === true && uppercase.isNeeded === true && numeric.isNeeded === false && specChar.isNeeded === true){
+    criteriaNeeded = 3;
+}
+
+else if(lowercase.isNeeded === true && uppercase.isNeeded === true && numeric.isNeeded === true && specChar.isNeeded === false){
+    criteriaNeeded = 3;
+}
+
+else if(lowercase.isNeeded === false && uppercase.isNeeded === false && numeric.isNeeded === true && specChar.isNeeded === true){
+    criteriaNeeded = 2;
+}
+
+else if(lowercase.isNeeded === true && uppercase.isNeeded === false && numeric.isNeeded === false && specChar.isNeeded === true){
+    criteriaNeeded = 2;
+}
+
+else if(lowercase.isNeeded === true && uppercase.isNeeded === true && numeric.isNeeded === false && specChar.isNeeded === false){
+    criteriaNeeded = 2;
+}
+
+else if(lowercase.isNeeded === false && uppercase.isNeeded === true && numeric.isNeeded === false && specChar.isNeeded === true){
+    criteriaNeeded = 2;
+}
+
+else if(lowercase.isNeeded === true && uppercase.isNeeded === false && numeric.isNeeded === true && specChar.isNeeded === false){
+    criteriaNeeded = 2;
+}
+
+else if(lowercase.isNeeded === false && uppercase.isNeeded === true && numeric.isNeeded === true && specChar.isNeeded === false){
+    criteriaNeeded = 2;
+}
+
+else if(lowercase.isNeeded === false && uppercase.isNeeded === false && numeric.isNeeded === false && specChar.isNeeded === true){
+    criteriaNeeded = 1;
+}
+
+else if(lowercase.isNeeded === true && uppercase.isNeeded === false && numeric.isNeeded === false && specChar.isNeeded === false){
+    criteriaNeeded = 1;
+}
+
+else if(lowercase.isNeeded === false && uppercase.isNeeded === true && numeric.isNeeded === false && specChar.isNeeded === false){
+    criteriaNeeded = 1;
+}
+
+else if(lowercase.isNeeded === false && uppercase.isNeeded === false && numeric.isNeeded === true && specChar.isNeeded === false){
+    criteriaNeeded = 1;
+}
+
+console.log(criteriaNeeded);
+
+for (var i = 0; i < passLength; i++) {
+    var num = Math.floor(Math.random() * criteriaNeeded) + 1;
+    // var total = total + String(num);
+    passDraft.push(num);
+}
+
+
 
 for (var i = 0; i < passLength; i++) {
   if (passDraft[i] === 1) {
@@ -96,6 +163,7 @@ for (var i = 0; i < passLength; i++) {
   }
 
 }
+// gen
 }
 }
 // Add event listener to generate button
