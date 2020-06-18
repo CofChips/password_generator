@@ -46,3 +46,13 @@ alert("Please enter password criteria on the subsequent screens");
 while(isNaN(passLength) || passLength < 8 || passLength > 128) {
     passLength = parseInt(prompt("Your password must be 8 - 128 characters in length.  How many characters would you like your password to be (please enter a number from 8 - 128)?")); 
 }
+
+for (var i = 0; i < passLength; i++) {
+  var num = Math.floor(Math.random() * 5) + 1;
+  // var total = total + String(num);
+  passDraft.push(num);
+}
+
+console.log(passDraft);
+
+console.log("----------------")
